@@ -16,8 +16,9 @@ const Header = () => {
             </div>
             {
                 user.email ? 
-                <button className="logOut-btn" onClick={logOut}>Log Out</button>
-                : <Link to="/login">Login</Link>}
+                <button className="logOut-btn" onClick={logOut}> {user.displayName} Log Out</button>
+                : <Link to="/login">Login </Link>
+                }
             
         
     </div>

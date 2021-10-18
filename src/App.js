@@ -10,6 +10,7 @@ import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -35,9 +36,9 @@ function App() {
           <Route path="/service">
             <Services></Services>
           </Route>
-          <Route path="/technology">
+          <PrivateRoute path="/technology">
             <Technolory></Technolory>
-          </Route>
+          </PrivateRoute>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
