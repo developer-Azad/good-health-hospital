@@ -13,14 +13,19 @@ const useFirebase = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLogin, setIslogin] = useState(false);
+    const [isLoading, setIsLoding] = useState(true);
     const [user, setUser] = useState({});
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
     const signInUsingGoogle = () => {
-       return signInWithPopup(auth, googleProvider)
-        
+        setIsLoding(true);
+       signInWithPopup(auth, googleProvider)
+       .then(result => {
+           setUser(result.user);
+       })
+       .finally(() => setIsLoding(false));
     }
 
     const toggleLogin = e => {
@@ -66,25 +71,30 @@ const useFirebase = () => {
         })
     }
 
-    const logOut = () => {
-        signOut(auth)
-        .then(() => {
-            setUser({});
-        })
-    }
-
     useEffect( () => {
-        onAuthStateChanged(auth, (user) => {
+      const unsubscribed = onAuthStateChanged(auth, (user) => {
             if(user) {
-                console.log('state changed', user);
                 setUser(user);
             }
-        })
+            else {
+                setUser({});
+            }
+            setIsLoding(false);
+        });
+        return () => unsubscribed;
     }, [])
+
+    const logOut = () => {
+        setIsLoding(true);
+        signOut(auth)
+        .then(() => { } )
+            .finally(() => setIsLoding(false));
+        }
 
     return {
         user,
         isLogin,
+        isLoading,
         signInUsingGoogle,
         handleEmailChange,
         handlePasswordChange,
