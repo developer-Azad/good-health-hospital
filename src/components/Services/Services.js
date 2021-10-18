@@ -6,15 +6,14 @@ import './Services.css'
 const Services = () => {
     const [services] = useServices();
   
-
-    
+  
     return (
         <div>
             <h2>24 Hours Services</h2>
            <div className="service-container">
            {
                 services.map(service => <Service
-                    key={services.id}
+                    key={service.id}
                      service={service}
                      ></Service>)
             }

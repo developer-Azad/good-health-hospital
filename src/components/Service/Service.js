@@ -3,13 +3,13 @@ import { useHistory } from 'react-router';
 import './Service.css'
 
 const Service = (props) => {
-    const {name, url, description} = props.service;
+    const {id, name, url, description} = props.service;
     const history = useHistory();
 
 
     const handleDetails = () => {
         console.log('Clicked');
-        history.push('/myself');
+        history.push(`/myself/${id}`);
     }
 
     return (

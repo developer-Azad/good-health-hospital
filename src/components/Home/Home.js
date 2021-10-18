@@ -20,7 +20,7 @@ const Home = () => {
            <div className="service-container">
            {
                 services.map(service => <Service 
-                    key={services.id}
+                    key={service.id}
                     service={service}
                     ></Service>)
             }
