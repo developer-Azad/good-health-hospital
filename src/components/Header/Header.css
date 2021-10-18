@@ -1,0 +1,16 @@
+
+.navbar {
+    background-color: blueviolet;
+    padding: 15px;
+}
+.navbar a{
+    text-decoration: none;
+    margin: 10px;
+    color: white;
+    
+}
+.logOut-btn{
+    background-color:blueviolet;
+    border: none;
+    color: white;
+}
