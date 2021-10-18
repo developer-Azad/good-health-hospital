@@ -9,7 +9,6 @@ initializeAuthentication();
 
 
 const useFirebase = () => {
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -20,11 +19,8 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-        .then(result => {
-            setUser(result.user);
-            console.log(result.user);
-        })
+       return signInWithPopup(auth, googleProvider)
+        
     }
 
     const toggleLogin = e => {
@@ -52,20 +48,17 @@ const useFirebase = () => {
     }
     
     const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-        .then(result => {
-            const user = result.user;
-            setError('');
-        })
-        .catch(error =>{
-            setError(error.message);
-        })
+       signInWithEmailAndPassword(auth, email, password)
+       .then(result => {
+
+       })
+        
     }
     
     const newUserRegister = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
-            const user = result.user;
+            // const user = result.user;
             setError('');
         })
         .catch(error => {
@@ -81,7 +74,7 @@ const useFirebase = () => {
     }
 
     useEffect( () => {
-        onAuthStateChanged(auth, user => {
+        onAuthStateChanged(auth, (user) => {
             if(user) {
                 console.log('state changed', user);
                 setUser(user);

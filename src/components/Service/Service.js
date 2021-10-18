@@ -1,12 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import './Service.css'
 
 const Service = (props) => {
     const {name, url, description} = props.service;
+    const history = useHistory();
 
 
     const handleDetails = () => {
         console.log('Clicked');
+        history.push('/myself');
     }
 
     return (

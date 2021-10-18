@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useFirebase from '../../hooks/useFirebase';
 
 const Register = () => {
-    const {error, signInUsingGoogle, handleRegistration, handleEmailChange, handlePasswordChange} = useFirebase();
+    const {error, signInUsingGoogle, handleRegistration, handleEmailChange, handlePasswordChange} = useAuth();
     return (
         <div className="login-form">
             <div>
