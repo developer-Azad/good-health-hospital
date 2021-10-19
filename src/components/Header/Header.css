@@ -2,13 +2,14 @@
 .navbar {
     background-color: blueviolet;
     padding: 15px;
+    position:relative;
 }
 .navbar a{
     text-decoration: none;
     margin: 10px;
     color: white;
 }
-.header-icon{
+.header-icon a{
     display: flex;
 }
 .header-icon img{

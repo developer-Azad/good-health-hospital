@@ -9,7 +9,7 @@ const Service = (props) => {
 
     const handleDetails = () => {
         console.log('Clicked');
-        history.push(`/myself/${id}`);
+        history.push(`/servicedetails/${id}`);
     }
 
     return (          
@@ -20,7 +20,7 @@ const Service = (props) => {
         <h5 className="card-title">{name}</h5>
         <p className="card-text">{description}</p>
       </div>
-      <div className="card-footer">
+      <div className="card-footer c-footer">
       <button className="detail-btn" onClick={handleDetails}>Details</button>
       </div>
     </div>

@@ -1,0 +1,22 @@
+
+.tech-heading{
+    display: flex;
+    background-color: rgb(212, 248, 236);
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.section img{
+    width: 100%;
+    
+}
+.description{
+    text-align: center;
+    margin-top: 10%;
+    padding: 10px;
+}
+

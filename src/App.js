@@ -3,16 +3,16 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
-import Technolory from './components/Technology/Technolory';
+import Technology from './components/Technology/Technology';
 import AboutUs from './components/AboutUs/AboutUs';
 import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import AboutMySelf from './components/AboutMySelf/AboutMySelf';
 import AuthProvider from './context/AuthProvider';
 import NotFound from './components/NotFound/NotFound';
+import ServiceDetails from './components/ServiceDetails/ServiceDetails';
 
 function App() {
   return (
@@ -39,11 +39,11 @@ function App() {
           <Route path="/service">
             <Services></Services>
           </Route>
-          <PrivateRoute path="/myself/:myselfId">
-            <AboutMySelf></AboutMySelf>
+          <PrivateRoute path="/servicedetails/:serviceId">
+            <ServiceDetails></ServiceDetails>
           </PrivateRoute>
           <Route path="/technology">
-            <Technolory></Technolory>
+            <Technology></Technology>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

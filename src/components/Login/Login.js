@@ -1,34 +1,32 @@
 import React from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import useFirebase from '../../hooks/useFirebase';
 import './Login.css'
 
 const Login = () => {
 
-    const {error, isLogin, signInUsingGoogle, handleEmailChange, handleRegistration, processLogin, 
+    const {user, error, isLogin, setUser, setIsLoding, signInUsingGoogle, handleEmailChange, handleRegistration, processLogin, 
         handlePasswordChange, toggleLogin} = useAuth();
 
         const location = useLocation();
         const history = useHistory();
-        const redirect_uri = location.state?.from || '/myself';
+        const redirect_uri = location.state?.from || '/servicedetails';
         const handleGoogleLogIn = () => {
             signInUsingGoogle()
             .then(result => {
+              
                 // const user = result.user;
                 history.push(redirect_uri);
             })
         }
 
-       
 
     return (
         <div className="login-form">
-            <div>
-                <h4>{error}</h4>
-                <form onSubmit={handleRegistration}>
-        <h3 className="text-primary">Please {isLogin ? 'Login' : 'Register'} </h3>
- 
+        <div>
+        <h4>{error}</h4>
+       <form onSubmit={handleRegistration}>
+      <h3 className="text-primary">Please {isLogin ? 'Login' : 'Register'} </h3>
   <div className="row mb-3">
     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
     <div className="col-sm-10">

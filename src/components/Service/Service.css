@@ -4,12 +4,17 @@
     padding: 10px;
     text-align: center;
 }
-.img{
-    
+.c-footer{
+    background-color: white;
+    text-align: center;
+    padding: 0;
+    border: none;
+    margin: 10px;
 }
 .detail-btn{
-    background-color: rgb(255, 2, 2);
+    background-color: rgb(255, 2, 44);
     border: none;
-    border-radius: 40px;
-    padding: 10px 50px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 90%;
 }

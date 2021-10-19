@@ -7,7 +7,6 @@ const Home = () => {
 
     return (
         <div>
-            
             <div>
             <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">

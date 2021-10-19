@@ -1,14 +1,15 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, 
     signOut, onAuthStateChanged, signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, setIsLogin } from "firebase/auth";
+    createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
 
 initializeAuthentication();
 
 
 const useFirebase = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -21,17 +22,17 @@ const useFirebase = () => {
 
     const signInUsingGoogle = () => {
         setIsLoding(true);
-       signInWithPopup(auth, googleProvider)
-       .then(result => {
-           setUser(result.user);
-       })
-       .finally(() => setIsLoding(false));
+      return signInWithPopup(auth, googleProvider)
+    .finally(() => setIsLoding(false));
     }
 
     const toggleLogin = e => {
         setIslogin(e.target.checked);
       }
 
+    const handleNameChange = e => {
+        setName(e.target.value);
+    }
     const handleEmailChange = e => {
         setEmail(e.target.value);
     }
@@ -55,7 +56,8 @@ const useFirebase = () => {
     const processLogin = (email, password) => {
        signInWithEmailAndPassword(auth, email, password)
        .then(result => {
-
+        setUser(result.user);
+              console.log(result.user);
        })
         
     }
@@ -63,6 +65,8 @@ const useFirebase = () => {
     const newUserRegister = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
+            setUser(result.user);
+              console.log(result.user);
             // const user = result.user;
             setError('');
         })
@@ -70,6 +74,18 @@ const useFirebase = () => {
             setError(error.message);
         })
     }
+
+    // const updateUser = () => {
+    //     updateProfile(auth.currentUser, {
+    //     displayName: name
+    //     })
+    //     .then(result => { 
+
+    //     })
+    //     .catch((error) => {
+    //         setError(error.message);
+    //     })
+    //     }
 
     useEffect( () => {
       const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -100,6 +116,7 @@ const useFirebase = () => {
         handlePasswordChange,
         handleRegistration,
         processLogin,
+        // updateUser,
         logOut,
         toggleLogin,
         error
