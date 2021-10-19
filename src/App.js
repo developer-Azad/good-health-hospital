@@ -12,6 +12,7 @@ import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AboutMySelf from './components/AboutMySelf/AboutMySelf';
 import AuthProvider from './context/AuthProvider';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
           </PrivateRoute>
           <Route path="/technology">
             <Technolory></Technolory>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
         <Footer></Footer>

@@ -7,6 +7,10 @@ const Header = () => {
     const {user, logOut} = useFirebase();
     return (
         <div className="navbar">
+            <div className="header-icon">
+                <img width="30px" src="https://image.shutterstock.com/image-vector/plus-circle-icon-flat-vector-260nw-1644009955.jpg" alt="" />
+                <h3>Good Health</h3>
+            </div>
             <div>
             <Link to="/home">Home</Link>
             <Link to="/about">About us</Link>
