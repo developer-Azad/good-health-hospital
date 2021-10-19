@@ -18,12 +18,13 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
+    // -----------------------Google sign In -------------------------
     const signInUsingGoogle = () => {
         setIsLoding(true);
       return signInWithPopup(auth, googleProvider)
     .finally(() => setIsLoding(false));
     }
-
+// -----------------------getting use name, email and password --------
     const handleNameChange = e => {
         setName(e.target.value);
     }
@@ -35,23 +36,7 @@ const useFirebase = () => {
         setPassword(e.target.value);
     }
     
-    // const updateUser = () => {
-    //     updateProfile(auth.currentUser, {
-    //     displayName: name
-    //     })
-    //     .then(result => { 
-
-    //     })
-    //     }
-    
-    // const createUser = (email, password) => {
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //     .then(result => {
-    //         setUser(result.user);
-    //           console.log(result.user);
-    //         updateUser();
-    //     })
-    // }
+    // -----------------------handling login -------------------------
 
     const userLogin = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
@@ -65,41 +50,22 @@ const useFirebase = () => {
             userLogin(email, password);
         }
 
-    // const handleRegistration = e => {
-    //         e.preventDefault();
-    //         console.log(email, password)
     
-    //         createUser(email, password);
-    //     }
-    
-    // sign in new user ------------------------------------------------------------------------------------
+
+    // -----------------------sign in new user -------------------------
     const handleRegistration = (e) => {
         e.preventDefault();
-
-        // error handling ---------------------------------------------
-
-        // if (password.length < 6) {
-        //     setError("Password should be at least 6 characters");
-        //     return;
-        // }
-
-        // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-        //     setError('password must contain two uppercase');
-        //     return;
-        // }
-
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                // setError('');
-                // verifyEmail();
                 setName();
                 setUser(user);
             })
     }
 
+    // -----------------------log out ----------------------------------
         const logOut = () => {
             setIsLoding(true);
             signOut(auth)
@@ -119,7 +85,6 @@ const useFirebase = () => {
         });
     }, [])
 
-    
 
     return {
         user,
@@ -133,7 +98,6 @@ const useFirebase = () => {
         logOut,
         handleLogin
     }
-
 }
 
 export default useFirebase;

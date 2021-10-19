@@ -23,8 +23,9 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            <h2>service details: {serviceId}</h2>
-
+            <div className="tech-heading">
+            <h2>Service details</h2>
+            </div>
            {/* <h2>{name}</h2> */}
            {/* <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">

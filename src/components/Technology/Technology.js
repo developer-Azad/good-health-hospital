@@ -5,7 +5,7 @@ import './Technology.css'
 const Technology = () => {
     return (
         <div>
-        <div className="tech-heading">
+            <div className="tech-heading">
             <h2>We Use Digital Technology</h2>
             </div>
         <div className="my-5">

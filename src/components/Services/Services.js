@@ -12,7 +12,7 @@ const Services = () => {
             <h2>24 Hours Services</h2>
            <div className="row row-cols-1 row-cols-md-3 g-4">
            {
-                services.map(service => <Service
+                services.slice(0, 6).map(service => <Service
                     key={service.id}
                      service={service}
                      ></Service>)

@@ -21,3 +21,10 @@
     border: none;
     color: white;
 }
+
+@media only screen and (max-width: 688px) {
+    .navbar{
+        display: flex;
+        flex-direction: column;
+    }
+}

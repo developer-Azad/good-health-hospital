@@ -5,3 +5,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+@media only screen and (max-width: 688px) {
+    .footer-item{
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-link{
+        margin: 10px;
+    }
+}
