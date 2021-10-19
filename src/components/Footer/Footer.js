@@ -18,6 +18,7 @@ const Footer = () => {
                     <p>Plastic Surgery</p>
                     <p>Open Heart Surgery</p>
                     <p>Brain treatment</p>
+                    <p>Special baby care</p>
                 </div>
                 <div>
                     <h3>Our Branches:</h3>
