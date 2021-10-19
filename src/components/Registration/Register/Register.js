@@ -5,24 +5,24 @@ import useAuth from '../../../hooks/useAuth';
 const Register = () => {
     const {signInUsingGoogle, handleNameChange, handleRegistration, handleEmailChange, handlePasswordChange} = useAuth();
     return (
-        <div className="login-form">
+        <div className="login">
             <div>
                 <h2>Please Register</h2>
                 <form onSubmit={handleRegistration}>
-                    <input onBlur={handleNameChange} type="text" name="" id=""
+                    <input className="input-field" onBlur={handleNameChange} type="text" name="" id=""
                      placeholder="Your Name" required />
-                     <br />
-                    <input onBlur={handleEmailChange} type="email" name="" id=""
+                     <br /><br />
+                    <input className="input-field" onBlur={handleEmailChange} type="email" name="" id=""
                      placeholder="Your Email" required/>
-                     <br />
-                    <input onBlur={handlePasswordChange} type="password" name="" id=""
+                     <br /><br />
+                    <input className="input-field" onBlur={handlePasswordChange} type="password" name="" id=""
                      placeholder="password" required/>
                     <br />
-                    <input className="btn btn-danger" type="submit" value="Submit" />
+                    <input className="btn btn-warning my-3" type="submit" value="Submit" />
                 </form>
-                <p>Already registerd? <Link style={{color:''}} to="/login">Login</Link></p>
+                <p>Already registerd? <Link className="link-color" style={{color:''}} to="/login">Login</Link></p>
                 <div>-----------------or----------------</div>
-                <button onClick={signInUsingGoogle} className="btn btn-danger">Google Sign In</button>
+                <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign In</button>
                 </div>
         </div>
     );

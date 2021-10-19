@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useFirebase from '../../hooks/useFirebase';
 import './Header.css';
 
 const Header = () => {
-    const {user, logOut} = useFirebase();
+    const {user, logOut} = useAuth();
     return (
 
             <div className="navbar">
