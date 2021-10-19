@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Info from '../Info/Info';
 
 
 const ServiceDetails = () => {
@@ -37,7 +36,6 @@ const ServiceDetails = () => {
       </div>
     </div>
   </div>
-  
 </div> */}
         </div>
     );

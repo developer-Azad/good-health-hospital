@@ -12,8 +12,6 @@ const useFirebase = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [isLogin, setIslogin] = useState(false);
     const [isLoading, setIsLoding] = useState(true);
     const [user, setUser] = useState({});
 
@@ -26,10 +24,6 @@ const useFirebase = () => {
     .finally(() => setIsLoding(false));
     }
 
-    const toggleLogin = e => {
-        setIslogin(e.target.checked);
-      }
-
     const handleNameChange = e => {
         setName(e.target.value);
     }
@@ -40,41 +34,7 @@ const useFirebase = () => {
     const handlePasswordChange = e => {
         setPassword(e.target.value);
     }
-
-    const handleRegistration = e => {
-        e.preventDefault();
-        console.log(email, password)
-
-        if(password.length < 6){
-            setError('password should be 6 caracter');
-            return;
-        }
-
-        isLogin ? processLogin(email, password) : newUserRegister(email, password);
-    }
     
-    const processLogin = (email, password) => {
-       signInWithEmailAndPassword(auth, email, password)
-       .then(result => {
-        setUser(result.user);
-              console.log(result.user);
-       })
-        
-    }
-    
-    const newUserRegister = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(result => {
-            setUser(result.user);
-              console.log(result.user);
-            // const user = result.user;
-            setError('');
-        })
-        .catch(error => {
-            setError(error.message);
-        })
-    }
-
     // const updateUser = () => {
     //     updateProfile(auth.currentUser, {
     //     displayName: name
@@ -82,13 +42,73 @@ const useFirebase = () => {
     //     .then(result => { 
 
     //     })
-    //     .catch((error) => {
-    //         setError(error.message);
-    //     })
     //     }
+    
+    // const createUser = (email, password) => {
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //     .then(result => {
+    //         setUser(result.user);
+    //           console.log(result.user);
+    //         updateUser();
+    //     })
+    // }
+
+    const userLogin = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then(result => {
+         window.location.reload();
+        }) 
+     }
+    
+    const handleLogin = (event) => {
+            event.preventDefault();
+            userLogin(email, password);
+        }
+
+    // const handleRegistration = e => {
+    //         e.preventDefault();
+    //         console.log(email, password)
+    
+    //         createUser(email, password);
+    //     }
+    
+    // sign in new user ------------------------------------------------------------------------------------
+    const handleRegistration = (e) => {
+        e.preventDefault();
+
+        // error handling ---------------------------------------------
+
+        // if (password.length < 6) {
+        //     setError("Password should be at least 6 characters");
+        //     return;
+        // }
+
+        // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+        //     setError('password must contain two uppercase');
+        //     return;
+        // }
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                // setError('');
+                // verifyEmail();
+                setName();
+                setUser(user);
+            })
+    }
+
+        const logOut = () => {
+            setIsLoding(true);
+            signOut(auth)
+            .then(() => { } )
+                .finally(() => setIsLoding(false));
+            }
 
     useEffect( () => {
-      const unsubscribed = onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, (user) => {
             if(user) {
                 setUser(user);
             }
@@ -97,29 +117,21 @@ const useFirebase = () => {
             }
             setIsLoding(false);
         });
-        return () => unsubscribed;
     }, [])
 
-    const logOut = () => {
-        setIsLoding(true);
-        signOut(auth)
-        .then(() => { } )
-            .finally(() => setIsLoding(false));
-        }
+    
 
     return {
         user,
-        isLogin,
         isLoading,
         signInUsingGoogle,
         handleEmailChange,
         handlePasswordChange,
+        handleNameChange,
         handleRegistration,
-        processLogin,
-        // updateUser,
+        userLogin,
         logOut,
-        toggleLogin,
-        error
+        handleLogin
     }
 
 }

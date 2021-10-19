@@ -7,12 +7,12 @@ import Technology from './components/Technology/Technology';
 import AboutUs from './components/AboutUs/AboutUs';
 import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
 import NotFound from './components/NotFound/NotFound';
 import ServiceDetails from './components/ServiceDetails/ServiceDetails';
+import Login from './components/Registration/Login/Login';
+import Register from './components/Registration/Register/Register';
 
 function App() {
   return (
