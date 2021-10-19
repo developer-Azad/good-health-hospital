@@ -1,9 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import './Doctors.css'
 
 const Doctors = (props) => {
-    const {name, url, description} = props.service;
-    
+    const {id, name, url, description} = props.service;
+    const history = useHistory();
+
+
+    const handleDetails = () => {
+        console.log('Clicked');
+        history.push(`/servicedetails/${id}`);
+    }
     return (
         <div className="col">
         <div className="card-img">

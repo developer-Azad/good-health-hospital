@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import ServiceCard from '../ServiceCard/ServiceCard';
 
 
 const ServiceDetails = () => {
@@ -25,6 +26,7 @@ const ServiceDetails = () => {
         <div>
             <div className="tech-heading">
             <h2>Service details</h2>
+
             </div>
            {/* <h2>{name}</h2> */}
            {/* <div class="row row-cols-1 row-cols-md-2 g-4">
