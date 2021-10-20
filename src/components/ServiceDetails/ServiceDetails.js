@@ -21,7 +21,7 @@ const ServiceDetails = () => {
             <div className="tech-heading">
                 <h2>Service details</h2>
             </div>
-            <div class="align mx-5 mb-5">
+            <div className="align mx-5 mb-5">
               <img className="detail-img" src={gotDetails?.url} alt="..."/>
                 <div className="align detail-text">
                   <div>

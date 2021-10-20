@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';
 
 const Register = () => {
-    const {signInUsingGoogle, handleNameChange, handleRegistration, handleEmailChange, handlePasswordChange} = useAuth();
+    const {password, signInUsingGoogle, handleNameChange, handleRegistration, handleEmailChange, handlePasswordChange} = useAuth();
     const location = useLocation();
     const history = useHistory();
+    const [error, setError] = useState('');
+
     const redirect_uri = location?.state?.from || '/';
     
     const handleNewRegister = (event) => {
         handleRegistration(event)
         .then(() => {
+//-------------------password error handling--------------------------
+            if(password.length < 6){
+                setError('Password Should be at least 6 caracters kalam')
+                return;
+            }
+            else{
             history.push(redirect_uri);
             window.location.reload();
-        })
+            }   
+        }) 
     }
 
     return (
         <div className="login">
             <div>
                 <h2>Please Register</h2>
+                <h3>{error}</h3>
                 <form onSubmit={handleNewRegister}>
                     <input className="input-field" onBlur={handleNameChange} type="text" name="" id=""
                      placeholder="Your Name" required />

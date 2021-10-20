@@ -4,23 +4,21 @@
     padding: 15px;
     position:relative;
 }
+.header-icon{
+    display: flex;
+    align-items: center;
+}
 .navbar a{
     text-decoration: none;
-    margin: 10px;
+    margin-right: 20px;
     color: white;
 }
 .navbar a:hover{
     color:lightgrey;
 }
-.header-icon a{
-    display: flex;
-}
-.header-icon img{
-    margin-right: 10px;
-    width: 40px;
-}
+
 .logOut-btn{
-    background-color:blueviolet;
+    background-color:blueviolet;;
     border: none;
     color: white;
 }
@@ -31,7 +29,7 @@
         flex-direction: column;
     }
 }
-@media only screen and (min-width: 688px) and (max-width: 900px) {
+@media only screen and (min-width: 688px) and (max-width: 1024px) {
     .navbar{
         display: flex;
         flex-direction: column;

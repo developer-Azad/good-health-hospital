@@ -1,7 +1,14 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhoneAlt, faEnvelope, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+
 import './Footer.css'
 
 const Footer = () => {
+    const icon1 = <FontAwesomeIcon icon={faPhoneAlt} />
+    const icon2 = <FontAwesomeIcon icon={faEnvelope} />
+    const icon3 = <FontAwesomeIcon icon={faMapMarkerAlt} />
+
     return (
         <div className="footer">
             <div className="footer-item px-5 py-4 text-white">
@@ -22,18 +29,18 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3>Our Branches:</h3>
-                    <p>Torento</p>
-                    <p>Alaska</p>
-                    <p>Florida</p>
-                    <p>Louisiana</p>
-                    <p>Maryland</p>
+                    <p>{icon3} Torento</p>
+                    <p>{icon3} Alaska</p>
+                    <p>{icon3} Florida</p>
+                    <p>{icon3} Louisiana</p>
+                    <p>{icon3} Maryland</p>
                 </div>
                 <div>
                     <h3>Get In Touch</h3>
                     <h5>Hotline:</h5>
-                    <p>01872-972125</p>
+                    <p>{icon1} 01872-972125</p>
                     <h5>Email:</h5>
-                    <p>goodhealth@gmail.com</p>
+                    <p>{icon2} goodhealth@gmail.com</p>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ const Technology = () => {
             <div className="tech-heading">
             <h2 className="fw-bold">We Use Digital Technology</h2>
             </div>
-        <div className="mx-5">
+        <div className="mx-5 mb-5">
             <div className="section">
                 <div className="">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/UPMCEast_CTscan.jpg/1200px-UPMCEast_CTscan.jpg" alt="" />
@@ -53,14 +53,14 @@ const Technology = () => {
                 </div>
             </div>
             <div className="section mt-5">
-            <div className="description">
+                <div className="description">
                     <div>
                     <h2>Digital Covid-19 Care</h2>
                     <p>Critically ill COVID-19 patients need artificial respiration. But there is a worldwide lack of equipment.</p>
                     </div>
                 </div>
                 <div className="middle">
-                <img src="https://static.dw.com/image/52885257_101.jpg" alt="" />
+                    <img src="https://static.dw.com/image/52885257_101.jpg" alt="" />
                 </div>
             </div>
         </div>

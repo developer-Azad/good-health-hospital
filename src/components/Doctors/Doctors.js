@@ -15,7 +15,7 @@ const Doctors = (props) => {
         <div className="col">
         <div className="card-img">
           <img src={url} className="card-img-top" alt="..."/>
-          <div>
+          <div className="my-4">
             <h3 className="text-center">{name}</h3>
             <p className="text-center">{description}</p>
           </div>

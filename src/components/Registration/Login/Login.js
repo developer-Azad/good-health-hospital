@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css'
 
 const Login = () => {
-    const {signInUsingGoogle, handleLogin, handleEmailChange, handlePasswordChange} = useAuth();
+    const {user, email, password, signInUsingGoogle, handleLogin, handleEmailChange, handlePasswordChange} = useAuth();
    const location = useLocation();
    const redirect_uri = location?.state?.from || '/';
    const history = useHistory();
+   const [err, setErr] = useState();
+   const [error, setError] = useState();
 
    const handleGoogleSignIn = () => {
        signInUsingGoogle()
@@ -22,12 +24,20 @@ const Login = () => {
        .then(result => {
            history.push(redirect_uri);
        })
+       .catch(error => {
+        setErr('kalam');
+    });
+
+       if(email !== user.email){
+        setError('Email not fount')
+        return;
+       }
    }
 
-   
     return (
         <div className="login">
         <div>
+            <h3>{error}</h3>
             <h2>Please Login</h2>
             <form onSubmit={handleEmailSignIn}>
                 <input className="input-field" onBlur={handleEmailChange} type="email" name="" id=""
