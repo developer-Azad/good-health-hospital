@@ -19,20 +19,18 @@ const ServiceDetails = () => {
     return (
         <div className="text-center">
             <div className="tech-heading">
-            <h2>Service details</h2>
+                <h2>Service details</h2>
             </div>
-           <div class="row row-cols-1 row-cols-md-2 g-4 align">
-  <div class="col">
-    <div class="card">
-      <img src={gotDetails?.url} class="card-img-top" alt="..."/>
-      <div class="card-body">
-        <h5 class="card-title">{gotDetails?.name}</h5>
-    <p class="card-text">{gotDetails?.description}</p>
-      </div>
-    </div>
-  </div>
-</div>
-        </div>
+            <div class="align mx-5 mb-5">
+              <img className="detail-img" src={gotDetails?.url} alt="..."/>
+                <div className="align detail-text">
+                  <div>
+                  <h3 className="fw-bold">{gotDetails?.name}</h3>
+                   <p>{gotDetails?.description}</p>
+                  </div>
+                </div>
+            </div>
+          </div>
     );
 };
 

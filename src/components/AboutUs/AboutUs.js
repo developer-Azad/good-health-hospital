@@ -20,9 +20,9 @@ const AboutUs = () => {
                 </div>
             </div>
         </div>
-        <div className="m-3">
+        <div>
             <h1 className="fw-bold m-4">Our Doctors</h1>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 mx-4">
            {
                 services.slice(6, 9).map(service => <Doctors
                     key={service.id}
@@ -30,25 +30,25 @@ const AboutUs = () => {
                      ></Doctors>)
             }
            </div>
-           <h3 className="text-center">We ready to take care of you any time.</h3>
-           <div className="services">
-               <div className="text-center">
+           <h3 className="text-center my-4 fw-bold">Our Best Services.</h3>
+           <div className="service-items">
+               <div className="text-center p-5">
                    <h4>Cardio Monitoring</h4>
                    <p>Cardiac monitoring generally refers to continuous or intermittent monitoring of heart activity, 
                        generally by electrocardiography.
                     </p>
                </div>
-               <div>
-                   <h3>Orthodontics</h3>
+               <div className="text-center p-5">
+                   <h4>Orthodontics</h4>
                    <p>Orthodontics is a branch of dentistry that treats malocclusion, a 
                        condition in which the teeth are not correctly positioned when the mouth is closed.
                     </p>
                </div>
-               <div>
-                   <h3>Pulmonary</h3>
-                   <p>Cardiac monitoring generally refers to continuous or intermittent monitoring of heart activity, 
-                       generally by electrocardiography, with assessment of the patient's condition relative to their cardiac rhythm.
-                    </p>
+               <div className="text-center p-5">
+                   <h4>Pulmonary</h4>
+                   <p>Pulmonary hypertension is high blood pressure in the blood vessels that supply the 
+                       lungs (pulmonary arteries). 
+                       </p>
                </div>
            </div>
            </div>
