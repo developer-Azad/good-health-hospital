@@ -39,30 +39,39 @@ const useFirebase = () => {
     // -----------------------handling login -------------------------
 
     const userLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-        .then(result => {
-         window.location.reload();
-        }) 
+       return signInWithEmailAndPassword(auth, email, password)
      }
     
     const handleLogin = (event) => {
             event.preventDefault();
-            userLogin(email, password);
+           return userLogin(email, password);
         }
+// -----------------------create new user -------------------------
 
-    
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                setUser(result.user);
+                updateUser();
+                userLogin(email, password);
+
+                
+            })
+    }
 
     // -----------------------sign in new user -------------------------
     const handleRegistration = (e) => {
         e.preventDefault();
+       return createUser(email, password);
+    }
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                setName();
-                setUser(user);
-            })
+    const updateUser = () => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+        })
+        .then(result => {
+
+        })
     }
 
     // -----------------------log out ----------------------------------

@@ -17,11 +17,19 @@ const Login = () => {
        })
    }
    
+   const handleEmailSignIn = (event) => {
+       handleLogin(event)
+       .then(result => {
+           history.push(redirect_uri);
+       })
+   }
+
+   
     return (
         <div className="login">
         <div>
             <h2>Please Login</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleEmailSignIn}>
                 <input className="input-field" onBlur={handleEmailChange} type="email" name="" id=""
                  placeholder="Your Email" required/>
                  <br /><br />

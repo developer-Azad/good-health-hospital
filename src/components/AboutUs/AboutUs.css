@@ -1,8 +1,28 @@
 
-.about-heading{
-    background-color: rgb(166, 255, 255);
+.about-cover{
+    background-color: rgb(193, 252, 252);
 }
-
-.text{
-    font-size: 70px;
+.about-text{
+    font-size: 50px;
+    font-weight: 700;
 }
+.services{
+    display: flex;
+    background-color: rgb(161, 250, 220);
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 688px) {
+    .about-heading{
+        margin: 35px 0px;
+    }
+    .about-text{
+        font-size: 35px;
+    }
+}
+@media only screen and (min-width: 688px) and (max-width: 1020px) {
+    .about-heading{
+      margin: 30px 0px;
+    }
+}  

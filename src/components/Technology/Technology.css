@@ -1,7 +1,6 @@
 
 .tech-heading{
     display: flex;
-    background-color: rgb(212, 248, 236);
     height: 100px;
     align-items: center;
     justify-content: center;
@@ -11,12 +10,28 @@
     grid-template-columns: 1fr 1fr;
 }
 .section img{
-    width: 100%;
-    
+    width: 100%; 
 }
 .description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 10%;
+    /* margin-top: 10%; */
     padding: 10px;
 }
+
+ @media only screen and (max-width: 688px) {
+    .section{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 688px) and (max-width: 1020px) {
+    .section{
+        display: flex;
+        flex-direction: column;
+    }
+} 
 

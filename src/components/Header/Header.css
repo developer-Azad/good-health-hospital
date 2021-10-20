@@ -9,6 +9,9 @@
     margin: 10px;
     color: white;
 }
+.navbar a:hover{
+    color:lightgrey;
+}
 .header-icon a{
     display: flex;
 }
@@ -23,6 +26,12 @@
 }
 
 @media only screen and (max-width: 688px) {
+    .navbar{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (min-width: 688px) and (max-width: 900px) {
     .navbar{
         display: flex;
         flex-direction: column;

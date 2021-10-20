@@ -9,8 +9,8 @@ const Services = () => {
   
     return (
         <div>
-            <h2>24 Hours Services</h2>
-           <div className="row row-cols-1 row-cols-md-3 g-4">
+            <h2 className="service-heading fw-bold">Our Runing Services</h2>
+           <div className="mx-5 mb-3 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
            {
                 services.slice(0, 6).map(service => <Service
                     key={service.id}

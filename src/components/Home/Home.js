@@ -16,7 +16,8 @@ const Home = () => {
                 </div>
             </div>
             </div>
-           <div className="service-container row row-cols-1 row-cols-md-3 g-4">
+            <h1 className="text-center fw-bold tech-heading">Our Services</h1>
+           <div className="mx-5 mb-3 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
            {
                 services.slice(0, 6).map(service => <Service 
                     key={service.id}

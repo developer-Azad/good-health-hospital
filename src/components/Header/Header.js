@@ -9,7 +9,7 @@ const Header = () => {
             <div className="navbar">
             <div className="header-icon">
                <Link to="/home"> 
-                <h3>Good Health</h3> </Link>
+                <h3 className="fw-bold">Good Health</h3> </Link>
             </div>
             <div className="nav-link">
             <Link to="/home">Home</Link>
@@ -21,7 +21,7 @@ const Header = () => {
             {
                 user.email ? 
                 <button className="logOut-btn" onClick={logOut}>Signed as : 
-                {user.displayName} <span className="text-black">Log Out</span></button>
+                {user.displayName} <span className="text-warning fw-bold">Log Out</span></button>
                 : <Link to="/login">Login </Link>
                 }
             </div>

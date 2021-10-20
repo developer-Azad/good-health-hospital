@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="footer">
-            <div className="footer-item p-5 text-white">
+            <div className="footer-item px-5 py-4 text-white">
                 <div>
                     <h3>Departments</h3>
                     <p>Surgery and Radiology</p>
@@ -22,11 +22,11 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3>Our Branches:</h3>
-                    <p>Dhaka</p>
-                    <p>Rajshahi</p>
-                    <p>Dinajpur</p>
-                    <p>Kumilla</p>
-                    <p>Barishal</p>
+                    <p>Torento</p>
+                    <p>Alaska</p>
+                    <p>Florida</p>
+                    <p>Louisiana</p>
+                    <p>Maryland</p>
                 </div>
                 <div>
                     <h3>Get In Touch</h3>
